@@ -1,6 +1,31 @@
 # go-caster
 Go implementation of an internal event notifier for any modern applications
 
+## Contents
+
+* [Install]
+* [Usage]
+* [API]
+  * [caster]
+  * [subcription]
+* [Examples]
+* [Tests]
+* [Guidelines]
+* [Contribute]
+* [FAQ]
+* [References]
+* [Maintainers]
+* [License]
+
+## Install 
+
+To get the library runs : 
+
+```bash
+go get -u github.com/lktslionel/go-caster
+```
+
+
 ## Usage 
 
 ```golang
@@ -54,7 +79,7 @@ Name | Type | Required | Description
 ---------|----------|---|------
 config  | caster.Config | Yes | Contains configuration items for caster
 
-<br>
+---
 
 #### .Subscribe(topic, subj)
 
@@ -78,7 +103,7 @@ subj  | Subscriber | Yes | Object that need to subscribe to a topic
  Subscription | Used to capture topic related events
  Error        | An error if something went wrong during subscription
 
-<br>
+---
 
 #### .UnSubscribe(subj)
 
@@ -100,7 +125,7 @@ subj  | Subscriber | Yes | Object has subscribe to topics
  Error        | An error if something went wrong during unsubscription
 
 
-<br>
+---
 
 #### .Raise(topic, extras)
 
@@ -122,7 +147,7 @@ extras  | interface{} | Yes | Extras info to consume as an event payload
  Error        | If raising fails
 
 
-<br>
+---
 
 #### .CancelAllSubscriptionOn(topic)
 
@@ -142,3 +167,58 @@ topic  | string | Yes | topic on which subscriptions have been made
  Type         | Description
 --------------|---------
  Error        | If the cancellation fails
+
+---
+<br>
+
+### Subscription
+
+
+## Examples
+
+
+## Tests
+
+
+## Guidelines
+
+See the [guidelines doc].
+
+## Contribute
+
+See the [contributing doc].
+
+## FAQ
+
+See the [faq doc].
+
+## References
+
+
+## Maintainers
+
+* Lionel T. [@lktslionel](https://twitter.com/lktslionel)
+
+## License
+ 
+[MIT license]
+
+
+[Install]: #Install
+[Usage]: #Usage
+[API]: #API
+[caster]: #caster
+[subcription]: #Subcription
+[Examples]: #Examples
+[Tests]: #Tests
+[Guidelines]: #Guidelines
+[Contribute]: #Contribute
+[FAQ]: #FAQ
+[References]: #References
+[Maintainers]: #Maintainers
+[License]: #License
+[Changelog]: docs/CHANGELOG.md
+[contributing doc]: docs/CONTRIBUTE.md
+[guidelines doc]: docs/GUIDELINES.md
+[faq doc]: docs/FAQ.md
+[MIT license]: LICENSE
