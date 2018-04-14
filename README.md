@@ -42,9 +42,9 @@ caster.Initialize(caster.Config{
 subscription, err := caster.Subscribe("info:component:method:start", subscriber)
 
 select {
-  case subcription.Received <- event:
+  case event := <- subcription.Received:
     // Do something with the event
-  case subcription.Cancelled <- event:
+  case event := <- subcription.Cancelled:
     // Do something when the subscription is cancelled 
 }
 
