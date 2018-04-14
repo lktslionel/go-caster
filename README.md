@@ -42,7 +42,7 @@ err := caster.CancelAllSubscriptionOn("info:component:method:start")
 
 ### caster
 
-#### .Intialize(config)
+#### .Initialize(config)
 
 Configure caster with the given config.
 
