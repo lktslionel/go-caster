@@ -1,5 +1,8 @@
 # go-caster
+
 Go implementation of an internal event notifier for any modern applications
+
+See [Our Moviations doc](docs/caster/motivations.md) for more information about why we build this tool and understand how things work under the hood.
 
 ## Contents
 
