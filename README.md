@@ -41,12 +41,19 @@ caster.Initialize(caster.Config{
 // Subcribe to an event topic
 subscription, err := caster.Subscribe("info:component:method:start", subscriber)
 
-select {
-  case event := <- subcription.Received:
-    // Do something with the event
-  case event := <- subcription.Cancelled:
-    // Do something when the subscription is cancelled 
+type Subscriber interface {
+  func EventReceived(e *Event, s *Subscription) 
+  func SubscriptionCancelled(s *Subscription)
 }
+
+subscription.WhenReceiveEvent(func(event *Event, s Subscriber){
+  select {
+    case event := <- this.Received:
+      // Do something with the event
+    case event := <- this.Cancelled:
+      // Do something when the subscription is cancelled 
+  }
+})
 
 // Build the detail object
 details := map[string]string{
@@ -175,6 +182,25 @@ topic  | string | Yes | topic on which subscriptions have been made
 <br>
 
 ### Subscription
+
+#### .Cancel()
+
+Cancels the current subscription.
+Any subscriber that has subscribe to this topic, will be unsubscribed.
+
+###### ARGS
+
+It takes the following parameters :
+
+Name | Type | Required | Description
+---------|----------|---|------
+topic  | string | Yes | topic on which subscriptions have been made
+
+###### RETURNS
+
+ Type         | Description
+--------------|---------
+ Error        | If the cancellation fails
 
 
 ## Examples
